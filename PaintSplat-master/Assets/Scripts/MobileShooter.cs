@@ -86,9 +86,6 @@ public class MobileShooter : MonoBehaviour {
         //   upon hitting a wall.
         Transform arCameraTransform = GameObject.Find("ARCamera").transform;
         GameObject ball = PhotonNetwork.Instantiate("ball", arCameraTransform.position, Quaternion.identity, 0);
-        BallBehavior ballBehaviour = ball.GetComponent<BallBehavior>();
-        //ballBehaviour.photonView.RPC("RPCInitialize", PhotonTargets.All, velocity, color_v);
-
         ball.GetComponent<PhotonView>().RPC("RPCInitialize", PhotonTargets.All, velocity, color_v);
 
     }
